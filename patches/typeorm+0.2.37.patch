@@ -1,0 +1,26 @@
+diff --git a/node_modules/typeorm/browser/driver/nativescript/NativescriptQueryRunner.js b/node_modules/typeorm/browser/driver/nativescript/NativescriptQueryRunner.js
+index f2ae0e5..cf49079 100644
+--- a/node_modules/typeorm/browser/driver/nativescript/NativescriptQueryRunner.js
++++ b/node_modules/typeorm/browser/driver/nativescript/NativescriptQueryRunner.js
+@@ -35,7 +35,7 @@ var NativescriptQueryRunner = /** @class */ (function (_super) {
+                         var isInsertQuery = query.substr(0, 11) === "INSERT INTO";
+                         var handler = function (err, raw) {
+                             // log slow queries if maxQueryExecution time is set
+-                            var maxQueryExecutionTime = this.driver.options.maxQueryExecutionTime;
++                            var maxQueryExecutionTime = _this.driver.options.maxQueryExecutionTime;
+                             var queryEndTime = +new Date();
+                             var queryExecutionTime = queryEndTime - queryStartTime;
+                             if (maxQueryExecutionTime && queryExecutionTime > maxQueryExecutionTime)
+diff --git a/node_modules/typeorm/driver/nativescript/NativescriptQueryRunner.js b/node_modules/typeorm/driver/nativescript/NativescriptQueryRunner.js
+index 41ac0fa..31a2296 100644
+--- a/node_modules/typeorm/driver/nativescript/NativescriptQueryRunner.js
++++ b/node_modules/typeorm/driver/nativescript/NativescriptQueryRunner.js
+@@ -38,7 +38,7 @@ var NativescriptQueryRunner = /** @class */ (function (_super) {
+                         var isInsertQuery = query.substr(0, 11) === "INSERT INTO";
+                         var handler = function (err, raw) {
+                             // log slow queries if maxQueryExecution time is set
+-                            var maxQueryExecutionTime = this.driver.options.maxQueryExecutionTime;
++                            var maxQueryExecutionTime = _this.driver.options.maxQueryExecutionTime;
+                             var queryEndTime = +new Date();
+                             var queryExecutionTime = queryEndTime - queryStartTime;
+                             if (maxQueryExecutionTime && queryExecutionTime > maxQueryExecutionTime)
