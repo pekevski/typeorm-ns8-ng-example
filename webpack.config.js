@@ -10,6 +10,7 @@ module.exports = (env) => {
 	webpack.chainWebpack(config => {
 
 		// Note: try typeorm v0.2.25
+		config.resolve.alias.set('typeorm', 'typeorm/browser');
 
 		// Add fallbacks for packages that TypeORM requires to work
 		// based off webpack v4 fallbacks https://webpack.js.org/configuration/resolve/#resolvefallback
