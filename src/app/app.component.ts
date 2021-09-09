@@ -2,6 +2,10 @@ import { Component } from '@angular/core'
 
 @Component({
   selector: 'ns-app',
-  templateUrl: './app.component.html',
+  template: `
+    <GridLayout>
+      <page-router-outlet></page-router-outlet>
+    </GridLayout>
+  `,
 })
 export class AppComponent {}
