@@ -10,6 +10,9 @@ module.exports = (env) => {
 
 	webpack.chainWebpack(config => {
 		
+		config.resolve.alias.set("supports-color", "supports-color/browser");
+		config.resolve.alias.set("app-root-path", "~/shim/app-root-path");
+		
 		// Add fallbacks for packages that TypeORM requires to work
 		// based off webpack v4 fallbacks https://webpack.js.org/configuration/resolve/#resolvefallback
 		const fallback = config.resolve.get("fallback");
@@ -54,20 +57,15 @@ module.exports = (env) => {
 		]);
 
 		config.plugin("ProvidePlugin|Polyfills").use(ProvidePlugin, [
-			{
-			  Buffer: [require.resolve("buffer/"), "Buffer"]
-			}
-		  ]);
-
-		config.resolve.alias.set("supports-color", "supports-color/browser");
-		config.resolve.alias.set("app-root-path", "~/shim/app-root-path");
+			{ Buffer: [require.resolve("buffer/"), "Buffer"] }
+		]);
 
 		config.plugin("DefinePlugin").tap(args => {
 			Object.assign(args[0], {
 				"process.env.NODE_DEBUG": false,
 				"process.platform": JSON.stringify("nativescript"),
 				"process.env": "global",
-				"process.version": JSON.stringify("0.0.0")
+				"process.version": JSON.stringify("0.0.0"),
 			});
 	 
 			return args;

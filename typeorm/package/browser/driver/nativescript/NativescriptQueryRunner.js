@@ -41,6 +41,7 @@ var NativescriptQueryRunner = /** @class */ (function (_super) {
                                 case 1:
                                     databaseConnection = _a.sent();
                                     isInsertQuery = query.substr(0, 11) === "INSERT INTO";
+                                    connection.logger.logQuery(query, parameters, this);
                                     handler = function (err, raw) {
                                         // log slow queries if maxQueryExecution time is set
                                         var maxQueryExecutionTime = _this.driver.options.maxQueryExecutionTime;

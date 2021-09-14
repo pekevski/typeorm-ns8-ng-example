@@ -22,16 +22,10 @@ let driver = require('nativescript-sqlite');
             entities: [
               User
             ],
-            logging: true,
+            logging: true
         })
 
         console.log("Connection Created")
-
-        // setting true will drop tables and recreate
-        await connection.synchronize(false) 
-
-        console.log("Synchronized")
-
 
     } catch (err) {
         console.error(err)
