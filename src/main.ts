@@ -12,7 +12,6 @@ let driver = require('nativescript-sqlite');
 (async () => {
 
   console.log('START APP')
-  console.log('dan test', global.process)
 
 
     try {
@@ -23,7 +22,7 @@ let driver = require('nativescript-sqlite');
             entities: [
               User
             ],
-            logging: true
+            logging: true,
         })
 
         console.log("Connection Created")

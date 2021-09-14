@@ -12,13 +12,17 @@ import {UserService} from './user.service';
     <GridLayout rows="*, auto">
       <ListView row=0 [items]="users" class="list-group">
         <ng-template let-item="item">
-            <Label class="list-group-item" [text]="item.firstName + ' ' + item.lastName"></Label>
+          <GridLayout columns="auto, *" rows="auto, auto" class="list-group-item">
+            <Image col=0 rowSpan=2 [src]="item.thumbnail" class="m-r-10" borderRadius="50%" loadMode="async" stretch="aspectFill" decodeWidth="20" decodeHeight="20"></Image>
+            <Label col=1 row=0 [text]="item.firstName + ' ' + item.lastName"></Label>
+            <Label col=1 row=1 [text]="'Age: ' + item.age + ', DOB: ' + (item.dob | date)"></Label>
+          </GridLayout>
         </ng-template>
       </ListView>
 
       <GridLayout row=1  columns="*,*">
-        <Button col=1 text="Add User" class="-primary" (tap)="addUser()"></Button>
-        <Button col=0 text="Delete Users" class="-secondary" (tap)="deleteUsers()"></Button>
+        <Button col=1 text="Add User" class="-primary -rounded-sm" (tap)="addUser()"></Button>
+        <Button col=0 text="Delete Users" class="-primary -orange -rounded-sm" (tap)="deleteUsers()"></Button>
       </GridLayout>
     </GridLayout>
   `

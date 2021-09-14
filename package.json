@@ -54,7 +54,7 @@
     "stream-browserify": "^3.0.0",
     "timers-browserify": "^2.0.12",
     "tty-browserify": "0.0.1",
-    "typeorm": "0.2.25",
+    "typeorm": "^0.2.37",
     "url": "^0.11.0",
     "util": "^0.12.4",
     "zone.js": "~0.11.4"
@@ -66,6 +66,7 @@
     "@nativescript/webpack": "beta",
     "@ngtools/webpack": "~12.0.0",
     "@types/node": "^16.9.0",
+    "@types/app-root-path": "^1.2.4",
     "typescript": "~4.2.0"
   },
   "private": "true",

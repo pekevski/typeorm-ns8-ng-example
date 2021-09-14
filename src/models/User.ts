@@ -15,4 +15,10 @@ export class User extends BaseEntity {
     @Column()
     age: number;
 
+    @Column()
+    thumbnail: string;
+  
+    @Column()
+    dob: string;
+
 }

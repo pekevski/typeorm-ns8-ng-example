@@ -1,5 +1,6 @@
 const webpack = require("@nativescript/webpack");
 const webpackMerge = require('webpack-merge');
+const { ProvidePlugin } = require("webpack");
 
 module.exports = (env) => {
 	webpack.init(env);
@@ -8,10 +9,7 @@ module.exports = (env) => {
 	// https://docs.nativescript.org/webpack
 
 	webpack.chainWebpack(config => {
-
-		// Note: try typeorm v0.2.25
-		config.resolve.alias.set('typeorm', 'typeorm/browser');
-
+		
 		// Add fallbacks for packages that TypeORM requires to work
 		// based off webpack v4 fallbacks https://webpack.js.org/configuration/resolve/#resolvefallback
 		const fallback = config.resolve.get("fallback");
@@ -34,16 +32,46 @@ module.exports = (env) => {
 			})
 		);
 
-		// config.plugin('DefinePlugin').tap(args => {
-		// 	console.log('test2', args)
-		// 	Object.assign(args[0], {
-		// 		process: 'global.process',
-		// 	})
-	
-		// 	return args
-		// })
+		config.set("externals", [
+			...config.get("externals"),
+			"react-native-sqlite-storage",
+			"mongodb",
+			"@sap/hana-client",
+			"hdb-pool",
+			"mysql",
+			"mysql2",
+			"oracledb",
+			"pg",
+			"pg-native",
+			"pg-query-stream",
+			"typeorm-aurora-data-api-driver",
+			"redis",
+			"ioredis",
+			"better-sqlite3",
+			"sqlite3",
+			"sql.js",
+			"mssql"
+		]);
 
-		console.log('test1', config.resolve.get("fallback"))
+		config.plugin("ProvidePlugin|Polyfills").use(ProvidePlugin, [
+			{
+			  Buffer: [require.resolve("buffer/"), "Buffer"]
+			}
+		  ]);
+
+		config.resolve.alias.set("supports-color", "supports-color/browser");
+		config.resolve.alias.set("app-root-path", "~/shim/app-root-path");
+
+		config.plugin("DefinePlugin").tap(args => {
+			Object.assign(args[0], {
+				"process.env.NODE_DEBUG": false,
+				"process.platform": JSON.stringify("nativescript"),
+				"process.env": "global",
+				"process.version": JSON.stringify("0.0.0")
+			});
+	 
+			return args;
+		});
 	});
 
 	return webpack.resolveConfig();
