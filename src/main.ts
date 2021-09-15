@@ -25,6 +25,9 @@ let driver = require('nativescript-sqlite');
             logging: true
         })
 
+        // Dangerously drops all tables on app start if true
+        // connection.synchronize(true);
+
         console.log("Connection Created")
 
     } catch (err) {

@@ -1,10 +1,10 @@
 {
-  "name": "@nativescript/template-hello-world-ng",
+  "name": "@nativescript/typeorm-ns8-ng-example",
   "main": "./src/main.ts",
   "version": "8.0.7",
-  "author": "NativeScript Team <oss@nativescript.org>",
-  "description": "NativeScript Application",
-  "license": "SEE LICENSE IN <your-license-filename>",
+  "author": "Daniel Pekevski <dpekevski@gmail.com>",
+  "description": "NativeScript + TypeORM Example Application",
+  "license": "Apache 2.0",
   "publishConfig": {
     "access": "public"
   },
@@ -23,11 +23,12 @@
     "mobile",
     "angular",
     "{N}",
-    "template"
+    "template",
+    "typeorm"
   ],
-  "repository": "<fill-your-repository-here>",
+  "repository": "https://github.com/pekevski/typeorm-ns8-ng-example",
   "bugs": {
-    "url": "https://github.com/NativeScript/NativeScript/issues"
+    "url": "https://github.com/pekevski/typeorm-ns8-ng-example/issues"
   },
   "dependencies": {
     "@angular/animations": "~12.0.0",
@@ -45,7 +46,7 @@
     "nativescript-sqlite": "^2.8.4",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.6.0",
-    "typeorm": "file://./typeorm/packages",
+    "typeorm": "file://./typeorm/package",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
