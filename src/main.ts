@@ -8,12 +8,8 @@ import "reflect-metadata"
 //driver
 let driver = require('nativescript-sqlite');
 
-
 (async () => {
-
-  console.log('START APP')
-
-
+    console.log('START APP')
     try {
         const connection = await createConnection({
             database: 'test.db',
@@ -29,12 +25,10 @@ let driver = require('nativescript-sqlite');
         // connection.synchronize(true);
 
         console.log("Connection Created")
-
     } catch (err) {
         console.error(err)
     }
 })();
-
 
 runNativeScriptAngularApp({
   appModuleBootstrap: () => platformNativeScript().bootstrapModule(AppModule),
