@@ -18,7 +18,7 @@ let driver = require('nativescript-sqlite');
             entities: [
               User
             ],
-            logging: true
+            logging: true,
         })
 
         // Dangerously drops all tables on app start if true
